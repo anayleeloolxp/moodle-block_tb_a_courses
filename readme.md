@@ -1,4 +1,6 @@
 # Leeloo LXP Available Courses Block
+This moodle block shows all the available courses for a user. 
+Available means the courses user is not enrolled.
 
 Installation Instructions
 =========================
