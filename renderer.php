@@ -135,10 +135,16 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
             'u.lang, u.timezone, u.lastaccess, u.mnethostid, u.imagealt, r.name AS rolename, r.sortorder, ' .
             'r.shortname AS roleshortname, rn.name AS rolecoursealias';
 
-        if($config->available_showasslider == 1){    
-            $html .= html_writer::start_div('tb_a_courses_list owl-carousel owl-theme');
+        if($config->available_style == 0){
+            $colorstyle = 'style_light';
         }else{
-            $html .= html_writer::start_div('tb_a_courses_list');
+            $colorstyle = 'style_dark';
+        }    
+
+        if($config->available_showasslider == 1){    
+            $html .= html_writer::start_div('tb_a_courses_list owl-carousel owl-theme '.$colorstyle);
+        }else{
+            $html .= html_writer::start_div('tb_a_courses_list '.$colorstyle);
         }  
         foreach ($courses as $key => $course) {
             // If moving course, then don't show course which needs to be moved.
