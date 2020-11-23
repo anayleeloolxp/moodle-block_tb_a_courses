@@ -47,8 +47,13 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
         if($config->available_showasslider == 1){
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/jquery.min.js'));
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/owl.carousel.js'));
-            $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/owlslider.js'));
-
+            $autoslide = $config->available_autoslide;
+            if($autoslide == 1){
+                $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/owlslider-auto.js'));
+            }else{
+                $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/owlslider.js'));
+            }
+            
             $this->page->requires->css(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/css/owl.carousel.min.css'));
             $this->page->requires->css(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/css/owl.theme.default.min.css'));
 
