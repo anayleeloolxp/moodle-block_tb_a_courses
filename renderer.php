@@ -44,7 +44,7 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
         $html = '';
         // LearningWorks.
 
-        if($config->available_showasslider == 1){
+        if(@$config->available_showasslider == 1){
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/jquery.min.js'));
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/owl.carousel.js'));
             $autoslide = $config->available_autoslide;
@@ -109,12 +109,12 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
         $gridsplit = intval(12 / count($courses)); // Added intval to avoid any float.
 
         // Set a minimum size for the course 'cards'.
-        $colsize = intval($config->available_coursegridwidth) > 0 ? intval($config->available_coursegridwidth) : BLOCKS_TB_A_COURSES_DEFAULT_COL_SIZE;
+        $colsize = intval(@$config->available_coursegridwidth) > 0 ? intval($config->available_coursegridwidth) : BLOCKS_TB_A_COURSES_DEFAULT_COL_SIZE;
         if ($gridsplit < $colsize) {
             $gridsplit = $colsize;
         }
 
-        $courseclass = $config->available_startgrid == BLOCKS_TB_A_COURSES_STARTGRID_YES ? "grid" : "list";
+        $courseclass = @$config->available_startgrid == BLOCKS_TB_A_COURSES_STARTGRID_YES ? "grid" : "list";
         $startvalue = $courseclass == "list" ? "12" : $gridsplit;
 
         $listonly = false;
@@ -123,7 +123,7 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
             $startvalue = 12;
             $courseclass = "list";
         } else {
-            if($config->available_showasslider == 1){    
+            if(@$config->available_showasslider == 1){    
                 $html .= '';
             }else{
                 $html .= html_writer::tag('a', 'Change View', array('href' => '#', 'id' => 'box-or-lines',
@@ -140,13 +140,13 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
             'u.lang, u.timezone, u.lastaccess, u.mnethostid, u.imagealt, r.name AS rolename, r.sortorder, ' .
             'r.shortname AS roleshortname, rn.name AS rolecoursealias';
 
-        if($config->available_style == 0){
+        if(@$config->available_style == 0){
             $colorstyle = 'style_light';
         }else{
             $colorstyle = 'style_dark';
         }    
 
-        if($config->available_showasslider == 1){    
+        if(@$config->available_showasslider == 1){    
             $html .= html_writer::start_div('tb_a_courses_list owl-carousel owl-theme '.$colorstyle);
         }else{
             $html .= html_writer::start_div('tb_a_courses_list '.$colorstyle);
@@ -164,7 +164,7 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
 
             $teacherimages = html_writer::start_div('teacher_image_wrap');
             $teachernames = '';
-            if ($course->id > 0 && !empty($role) && $config->available_showteachers != BLOCKS_TB_A_COURSES_SHOWTEACHERS_NO) {
+            if ($course->id > 0 && !empty($role) && @$config->available_showteachers != BLOCKS_TB_A_COURSES_SHOWTEACHERS_NO) {
                 $context = context_course::instance($course->id);
                 $teachers = get_role_users($role->id, $context, false, $fields);
                 foreach ($teachers as $key => $teacher) {
@@ -232,12 +232,12 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
                 $html .= html_writer::div($teachernames, 'teacher_names');
             }
 
-            if ($config->available_showcategories != BLOCKS_TB_A_COURSES_SHOWCATEGORIES_NONE) {
+            if (@$config->available_showcategories != BLOCKS_TB_A_COURSES_SHOWCATEGORIES_NONE) {
                 // List category parent or categories path here.
                 $currentcategory = core_course_category::get($course->category, IGNORE_MISSING);
                 if ($currentcategory !== null) {
                     $html .= html_writer::start_tag('div', array('class' => 'categorypath'));
-                    if ($config->available_showcategories == BLOCKS_TB_A_COURSES_SHOWCATEGORIES_FULL_PATH) {
+                    if (@$config->available_showcategories == BLOCKS_TB_A_COURSES_SHOWCATEGORIES_FULL_PATH) {
                         foreach ($currentcategory->get_parents() as $categoryid) {
                             $category = core_course_category::get($categoryid, IGNORE_MISSING);
                             if ($category !== null) {
@@ -457,7 +457,7 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
                     '/' . $file->get_contextid() . '/' . $file->get_component() . '/' .
                     $file->get_filearea() . $file->get_filepath() . $file->get_filename(), !$isimage);
                 if ($isimage) {
-                    if (is_null($config->available_tb_a_courses_bgimage) ||
+                    if (is_null(@$config->available_tb_a_courses_bgimage) ||
                         $config->available_tb_a_courses_bgimage == BLOCKS_TB_A_COURSES_IMAGEASBACKGROUND_FALSE) {
                         // Embed the image url as a img tag sweet...
                         $image = html_writer::empty_tag('img', array('src' => $url, 'class' => 'course_image'));
@@ -526,7 +526,7 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
     public function course_description($course, $config) {
         $course = new core_course_list_element($course);
 
-        $limit = $config->available_summary_limit;
+        $limit = @$config->available_summary_limit;
         if ($limit == '') {
             $limit = 200;
         }

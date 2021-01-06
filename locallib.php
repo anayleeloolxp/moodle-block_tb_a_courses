@@ -199,9 +199,9 @@ function block_tb_a_courses_get_max_user_courses($showallcourses = false) {
     }
 
     $resposedata = json_decode($output);
-    $settingleeloolxp = $resposedata->data->courses_settings;
+    $settingleeloolxp = @$resposedata->data->courses_settings;
 
-    $limit = $settingleeloolxp->available_defaultmaxcourses;
+    $limit = @$settingleeloolxp->available_defaultmaxcourses;
 
     // If max course is not set then try get user preference.
     if (empty($settingleeloolxp->available_forcedefaultmaxcourses)) {
@@ -324,7 +324,7 @@ function block_tb_a_courses_build_progress($course, $config) {
     require_once($CFG->dirroot . '/grade/lib.php');
     $completestring = get_string('complete');
 
-    if ($config->available_progressenabled == BLOCKS_TB_A_COURSES_SHOWGRADES_NO) {
+    if (@$config->available_progressenabled == BLOCKS_TB_A_COURSES_SHOWGRADES_NO) {
         return '';
     }
 
