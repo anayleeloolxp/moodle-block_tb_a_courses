@@ -70,7 +70,7 @@
     background: 0 0;
     color: inherit;
     border: none;
-    padding: 0 !important;
+    padding: 0;
     font: inherit;
 }
 .owl-carousel.owl-loading {
@@ -92,7 +92,6 @@
     user-select: none;
 }
 .owl-carousel.owl-grab {
-    cursor: move;
     cursor: grab;
 }
 .owl-carousel.owl-rtl {
@@ -114,6 +113,7 @@
 .owl-carousel .fadeOut {
     animation-name: fadeOut;
 }
+
 @keyframes fadeOut {
     0% {
         opacity: 1;
