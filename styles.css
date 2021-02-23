@@ -202,10 +202,7 @@
     position: relative;
     cursor: pointer;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_image_embed {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_image_embed {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -240,10 +237,7 @@
     color: #fff;
     font-size: 12px;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_description {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_description {
     top: 100%;
     position: absolute;
     left: 10px;
@@ -267,50 +261,29 @@
     width: auto;
 }
 
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_description
-    p {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_description p {
     color: #fff;
     font-size: 12px;
     line-height: normal;
 }
 
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_description
-    p
-    a {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_description p a {
     color: inherit;
 }
 
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_description
-    ul {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_description ul {
     color: #fff;
     font-size: 12px;
     line-height: normal;
 }
 
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_description
-    li {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_description li {
     color: #fff;
     font-size: 12px;
     line-height: normal;
 }
 
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_description
-    span {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_description span {
     color: #fff;
     font-size: 12px;
     line-height: normal;
@@ -327,11 +300,7 @@
     background: url([[pix:block_tb_a_courses|bg_grid]]) no-repeat top left;
     background-size: cover;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_title
-    .course_title {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_title .course_title {
     padding: 10px;
     margin-top: -55px;
     z-index: 1;
@@ -340,12 +309,7 @@
     transition: top 0.5s ease;
     transition-delay: 0.5s;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_title
-    .course_title
-    a {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_title .course_title a {
     margin: 0;
     color: #fff;
     font-size: 16px;
@@ -353,10 +317,7 @@
     font-weight: 300;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_title:after {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_title:after {
     content: "";
     position: absolute;
     top: 0;
@@ -367,11 +328,7 @@
     transition: top 0.5s ease;
     box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.2);
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12)
-    .course_title
-    .course_link {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_title .course_link {
     display: block;
     top: 220px;
     float: none;
@@ -390,75 +347,37 @@
 .block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12) .course_image {
     background-position: center center;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):hover
-    .course_title,
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):focus
-    .course_title {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):hover .course_title,
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):focus .course_title {
     top: 0;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):hover
-    .course_title
-    .move,
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):focus
-    .course_title
-    .move {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):hover .course_title .move,
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):focus .course_title .move {
     position: absolute;
     top: 6px;
     z-index: 999;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):hover
-    .course_title:after,
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):focus
-    .course_title:after {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):hover .course_title:after,
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):focus .course_title:after {
     transform: skewX(0deg);
     margin-top: -15px;
     left: 0;
     transition: top 0.5s ease;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):hover
-    .course_title:before,
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):focus
-    .course_title:before {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):hover .course_title:before,
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):focus .course_title:before {
     margin-top: -65px;
     transition: top 0.5s ease;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):hover
-    .course_description,
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):focus
-    .course_description {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):hover .course_description,
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):focus .course_description {
     top: 55px;
     transition: top 0.5s ease;
     color: #fff;
 }
 
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):hover
-    .teacher_names,
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox:not(.span12):focus
-    .teacher_names {
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):hover .teacher_names,
+.block_tb_a_courses .tb_a_courses_list .coursebox:not(.span12):focus .teacher_names {
     top: 195px;
     transition: top 0.5s ease;
     color: #fff;
@@ -493,20 +412,12 @@
     margin: 5px;
     transition: top 0.5s ease;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox.span12
-    .course_content
-    a.btn:hover {
+.block_tb_a_courses .tb_a_courses_list .coursebox.span12 .course_content a.btn:hover {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.3) inset;
     transition: top 0.5s ease;
     background: #eaeaea;
 }
-.block_tb_a_courses
-    .tb_a_courses_list
-    .coursebox.span12
-    .course_content
-    .course_link {
+.block_tb_a_courses .tb_a_courses_list .coursebox.span12 .course_content .course_link {
     display: block;
     position: relative;
     background: transparent;
@@ -555,11 +466,7 @@
     opacity: 1;
 }
 
-.tb_a_courses_list
-    .coursebox:not(.span12):hover
-    .course_content
-    .summary
-    .autolink {
+.tb_a_courses_list .coursebox:not(.span12):hover .course_content .summary .autolink {
     display: inline;
     padding: 0;
     color: #fff;
@@ -569,8 +476,7 @@
     margin-right: 0;
 }
 .editing .block_tb_a_courses .coursebox .cursor {
-    filter: grayscale(100%) sepia(100%) hue-rotate(55deg) brightness(0.9)
-        saturate(1.5);
+    filter: grayscale(100%) sepia(100%) hue-rotate(55deg) brightness(0.9) saturate(1.5);
 }
 .editing .block_tb_a_courses .coursebox:not(.span12) .move {
     position: static;
