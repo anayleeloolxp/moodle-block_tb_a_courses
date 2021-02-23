@@ -44,19 +44,18 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
         $html = '';
         // LearningWorks.
 
-        if(@$config->available_showasslider == 1){
+        if (@$config->available_showasslider == 1) {
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/jquery.min.js'));
             $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/owl.carousel.js'));
             $autoslide = $config->available_autoslide;
-            if($autoslide == 1){
+            if ($autoslide == 1) {
                 $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/owlslider-auto.js'));
-            }else{
+            } else {
                 $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/owlslider.js'));
             }
-            
+
             $this->page->requires->css(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/css/owl.carousel.min.css'));
             $this->page->requires->css(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/css/owl.theme.default.min.css'));
-
         }
 
         $this->page->requires->js(new moodle_url($CFG->wwwroot . '/blocks/tb_a_courses/js/custom.js'));
@@ -123,11 +122,11 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
             $startvalue = 12;
             $courseclass = "list";
         } else {
-            if(@$config->available_showasslider == 1){    
+            if (@$config->available_showasslider == 1) {
                 $html .= '';
-            }else{
+            } else {
                 $html .= html_writer::tag('a', 'Change View', array('href' => '#', 'id' => 'box-or-lines',
-                'styles' => '', 'class' => "$courseclass col-md-$startvalue span$startvalue $courseclass"));
+                    'styles' => '', 'class' => "$courseclass col-md-$startvalue span$startvalue $courseclass"));
             }
         }
         $html .= html_writer::tag('div', '', array("class" => "hidden startgrid $courseclass", "grid-size" => $gridsplit));
@@ -140,17 +139,17 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
             'u.lang, u.timezone, u.lastaccess, u.mnethostid, u.imagealt, r.name AS rolename, r.sortorder, ' .
             'r.shortname AS roleshortname, rn.name AS rolecoursealias';
 
-        if(@$config->available_style == 0){
+        if (@$config->available_style == 0) {
             $colorstyle = 'style_light';
-        }else{
+        } else {
             $colorstyle = 'style_dark';
-        }    
+        }
 
-        if(@$config->available_showasslider == 1){    
-            $html .= html_writer::start_div('tb_a_courses_list owl-carousel owl-theme '.$colorstyle);
-        }else{
-            $html .= html_writer::start_div('tb_a_courses_list '.$colorstyle);
-        }  
+        if (@$config->available_showasslider == 1) {
+            $html .= html_writer::start_div('tb_a_courses_list owl-carousel owl-theme ' . $colorstyle);
+        } else {
+            $html .= html_writer::start_div('tb_a_courses_list ' . $colorstyle);
+        }
         foreach ($courses as $key => $course) {
             // If moving course, then don't show course which needs to be moved.
             if ($ismovingcourse && ($course->id == $movingcourseid)) {
@@ -494,7 +493,7 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
             // Still a pre Moodle 3.3 release. Use pix_url because image_url doesn't exist yet.
             $default = $this->output->pix_url('default', 'block_tb_a_courses');
         }
-        if ($courseimagedefault = $config->available_courseimagedefault) {
+        if (@$courseimagedefault = $config->available_courseimagedefault) {
             // Return an img element with the image in the block settings to use for the course.
             $imageurl = $courseimagedefault;
         } else {
@@ -503,7 +502,7 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
         }
 
         // Do we need a CSS soloution or is a img good enough?.
-        if (is_null($config->available_tb_a_courses_bgimage) || $config->available_tb_a_courses_bgimage == BLOCKS_TB_A_COURSES_IMAGEASBACKGROUND_FALSE) {
+        if (is_null(@$config->available_tb_a_courses_bgimage) || @$config->available_tb_a_courses_bgimage == BLOCKS_TB_A_COURSES_IMAGEASBACKGROUND_FALSE) {
             // Embed the image url as a img tag sweet...
             $image = html_writer::empty_tag('img', array('src' => $imageurl, 'class' => 'course_image'));
             return html_writer::div($image, 'image_wrap');
@@ -534,7 +533,7 @@ class block_tb_a_courses_renderer extends plugin_renderer_base {
         $context = \context_course::instance($course->id);
         $summary = external_format_string($course->summary, $context,
             1, array());
-        return html_writer::div(substr(strip_tags($summary), 0, $limit).'...', 'course_description');
+        return html_writer::div(substr(strip_tags($summary), 0, $limit) . '...', 'course_description');
     }
 
     /**
